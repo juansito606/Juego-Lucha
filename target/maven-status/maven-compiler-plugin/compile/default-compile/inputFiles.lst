@@ -1,0 +1,14 @@
+/workspaces/Juego-Lucha/src/main/java/com/juego/juego/JuegoLucha.java
+/workspaces/Juego-Lucha/src/main/java/com/juego/juego/Main.java
+/workspaces/Juego-Lucha/src/main/java/com/juego/model/Personaje.java
+/workspaces/Juego-Lucha/src/main/java/com/juego/model/PersonajeConEstrategia.java
+/workspaces/Juego-Lucha/src/main/java/com/juego/patrones/decorator/DecoradorPersonaje.java
+/workspaces/Juego-Lucha/src/main/java/com/juego/patrones/decorator/PersonajeConEspada.java
+/workspaces/Juego-Lucha/src/main/java/com/juego/patrones/factory/FabricaAsesino.java
+/workspaces/Juego-Lucha/src/main/java/com/juego/patrones/factory/FabricaGuerrero.java
+/workspaces/Juego-Lucha/src/main/java/com/juego/patrones/factory/FabricaMago.java
+/workspaces/Juego-Lucha/src/main/java/com/juego/patrones/factory/FabricaPersonaje.java
+/workspaces/Juego-Lucha/src/main/java/com/juego/patrones/strategy/AtaqueCritico.java
+/workspaces/Juego-Lucha/src/main/java/com/juego/patrones/strategy/AtaqueFisico.java
+/workspaces/Juego-Lucha/src/main/java/com/juego/patrones/strategy/AtaqueMagico.java
+/workspaces/Juego-Lucha/src/main/java/com/juego/patrones/strategy/EstrategiaAtaque.java

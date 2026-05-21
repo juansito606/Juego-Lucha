@@ -1,0 +1,5 @@
+/workspaces/Juego-Lucha/src/test/java/com/juego/juego/JuegoLuchaTest.java
+/workspaces/Juego-Lucha/src/test/java/com/juego/model/PersonajeTest.java
+/workspaces/Juego-Lucha/src/test/java/com/juego/patrones/DecoradorTest.java
+/workspaces/Juego-Lucha/src/test/java/com/juego/patrones/EstrategiaAtaqueTest.java
+/workspaces/Juego-Lucha/src/test/java/com/juego/patrones/FabricaPersonajetest.java

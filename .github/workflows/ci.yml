@@ -1,0 +1,54 @@
+# Nombre del pipeline que verás en la pestaña "Actions" de GitHub
+name: Java CI con Maven
+
+# ¿Cuándo se ejecuta este pipeline?
+on:
+  push:
+    branches: [ main, develop ]   # Cuando subes código a main o develop
+  pull_request:
+    branches: [ main ]             # Cuando creas un Pull Request hacia main
+
+jobs:
+  # Este es el único "trabajo" del pipeline
+  build-y-test:
+    # Se ejecuta en una máquina virtual con Ubuntu (gratis en GitHub)
+    runs-on: ubuntu-latest
+
+    steps:
+      # Paso 1: Descargar el código del repositorio
+      - name: Descargar código
+        uses: actions/checkout@v3
+
+      # Paso 2: Instalar Java 17
+      - name: Configurar JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'   # Distribución de Java (OpenJDK de Adoptium)
+
+      # Paso 3: Compilar el proyecto
+      - name: Compilar con Maven
+        run: mvn clean compile
+
+      # Paso 4: Ejecutar todas las pruebas
+      - name: Ejecutar pruebas
+        run: mvn test
+
+      # Paso 5: Generar reporte de cobertura
+      - name: Generar reporte JaCoCo
+        run: mvn jacoco:report
+
+      # Paso 6: Guardar el reporte de cobertura como artefacto descargable
+      - name: Guardar reporte de cobertura
+        uses: actions/upload-artifact@v3
+        with:
+          name: reporte-cobertura
+          path: target/site/jacoco/
+
+      # Paso 7: Guardar resultados de pruebas (siempre, incluso si fallan)
+      - name: Guardar resultados de pruebas
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: resultados-pruebas
+          path: target/surefire-reports/

@@ -1,0 +1,14 @@
+com/juego/patrones/factory/FabricaGuerrero.class
+com/juego/model/PersonajeConEstrategia.class
+com/juego/model/Personaje.class
+com/juego/patrones/strategy/EstrategiaAtaque.class
+com/juego/juego/JuegoLucha.class
+com/juego/patrones/factory/FabricaAsesino.class
+com/juego/patrones/factory/FabricaMago.class
+com/juego/patrones/decorator/PersonajeConEspada.class
+com/juego/patrones/factory/FabricaPersonaje.class
+com/juego/patrones/strategy/AtaqueCritico.class
+com/juego/juego/Main.class
+com/juego/patrones/strategy/AtaqueFisico.class
+com/juego/patrones/strategy/AtaqueMagico.class
+com/juego/patrones/decorator/DecoradorPersonaje.class
