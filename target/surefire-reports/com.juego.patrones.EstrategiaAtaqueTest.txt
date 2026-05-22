@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.juego.patrones.EstrategiaAtaqueTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 2.169 s <<< FAILURE! - in com.juego.patrones.EstrategiaAtaqueTest
-com.juego.patrones.EstrategiaAtaqueTest.testAtaqueFisicoRangoDano  Time elapsed: 1.979 s  <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 2.398 s <<< FAILURE! - in com.juego.patrones.EstrategiaAtaqueTest
+com.juego.patrones.EstrategiaAtaqueTest.testAtaqueFisicoRangoDano  Time elapsed: 2.065 s  <<< ERROR!
 org.mockito.exceptions.base.MockitoException: 
 
 Mockito cannot mock this class: class com.juego.model.Personaje.
@@ -23,14 +23,14 @@ OS version         : 6.8.0-1044-azure
 You are seeing this disclaimer because Mockito is configured to create inlined mocks.
 You can learn about inline mocks and their limitations under item #39 of the Mockito class javadoc.
 
-Underlying exception : org.mockito.exceptions.base.MockitoException: Could not modify all classes [class java.lang.Object, class com.juego.model.Personaje]
+Underlying exception : org.mockito.exceptions.base.MockitoException: Could not modify all classes [class com.juego.model.Personaje, class java.lang.Object]
 	at org.mockito.junit.jupiter.MockitoExtension.beforeEach(MockitoExtension.java:153)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 	Suppressed: java.lang.NullPointerException: Cannot invoke "java.util.Set.forEach(java.util.function.Consumer)" because the return value of "org.junit.jupiter.api.extension.ExtensionContext$Store.remove(Object, java.lang.Class)" is null
 		at org.mockito.junit.jupiter.MockitoExtension.afterEach(MockitoExtension.java:184)
 		... 2 more
-Caused by: org.mockito.exceptions.base.MockitoException: Could not modify all classes [class java.lang.Object, class com.juego.model.Personaje]
+Caused by: org.mockito.exceptions.base.MockitoException: Could not modify all classes [class com.juego.model.Personaje, class java.lang.Object]
 	at net.bytebuddy.TypeCache.findOrInsert(TypeCache.java:168)
 	at net.bytebuddy.TypeCache$WithInlineExpunction.findOrInsert(TypeCache.java:399)
 	at net.bytebuddy.TypeCache.findOrInsert(TypeCache.java:190)
@@ -83,7 +83,7 @@ Caused by: java.lang.IllegalArgumentException: Java 25 (69) is not supported by 
 	at org.mockito.internal.creation.bytebuddy.InlineBytecodeGenerator.triggerRetransformation(InlineBytecodeGenerator.java:281)
 	... 27 more
 
-com.juego.patrones.EstrategiaAtaqueTest.testAtaqueCriticoEsDoble  Time elapsed: 0.071 s  <<< ERROR!
+com.juego.patrones.EstrategiaAtaqueTest.testAtaqueCriticoEsDoble  Time elapsed: 0.085 s  <<< ERROR!
 org.mockito.exceptions.base.MockitoException: 
 
 Mockito cannot mock this class: class com.juego.model.Personaje.
@@ -104,14 +104,14 @@ OS version         : 6.8.0-1044-azure
 You are seeing this disclaimer because Mockito is configured to create inlined mocks.
 You can learn about inline mocks and their limitations under item #39 of the Mockito class javadoc.
 
-Underlying exception : org.mockito.exceptions.base.MockitoException: Could not modify all classes [class java.lang.Object, class com.juego.model.Personaje]
+Underlying exception : org.mockito.exceptions.base.MockitoException: Could not modify all classes [class com.juego.model.Personaje, class java.lang.Object]
 	at org.mockito.junit.jupiter.MockitoExtension.beforeEach(MockitoExtension.java:153)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 	Suppressed: java.lang.NullPointerException: Cannot invoke "java.util.Set.forEach(java.util.function.Consumer)" because the return value of "org.junit.jupiter.api.extension.ExtensionContext$Store.remove(Object, java.lang.Class)" is null
 		at org.mockito.junit.jupiter.MockitoExtension.afterEach(MockitoExtension.java:184)
 		... 2 more
-Caused by: org.mockito.exceptions.base.MockitoException: Could not modify all classes [class java.lang.Object, class com.juego.model.Personaje]
+Caused by: org.mockito.exceptions.base.MockitoException: Could not modify all classes [class com.juego.model.Personaje, class java.lang.Object]
 	at net.bytebuddy.TypeCache.findOrInsert(TypeCache.java:168)
 	at net.bytebuddy.TypeCache$WithInlineExpunction.findOrInsert(TypeCache.java:399)
 	at net.bytebuddy.TypeCache.findOrInsert(TypeCache.java:190)
@@ -164,7 +164,7 @@ Caused by: java.lang.IllegalArgumentException: Java 25 (69) is not supported by 
 	at org.mockito.internal.creation.bytebuddy.InlineBytecodeGenerator.triggerRetransformation(InlineBytecodeGenerator.java:281)
 	... 27 more
 
-com.juego.patrones.EstrategiaAtaqueTest.testAtaqueMagicoRangoDano  Time elapsed: 0.057 s  <<< ERROR!
+com.juego.patrones.EstrategiaAtaqueTest.testAtaqueMagicoRangoDano  Time elapsed: 0.085 s  <<< ERROR!
 org.mockito.exceptions.base.MockitoException: 
 
 Mockito cannot mock this class: class com.juego.model.Personaje.
@@ -185,14 +185,14 @@ OS version         : 6.8.0-1044-azure
 You are seeing this disclaimer because Mockito is configured to create inlined mocks.
 You can learn about inline mocks and their limitations under item #39 of the Mockito class javadoc.
 
-Underlying exception : org.mockito.exceptions.base.MockitoException: Could not modify all classes [class java.lang.Object, class com.juego.model.Personaje]
+Underlying exception : org.mockito.exceptions.base.MockitoException: Could not modify all classes [class com.juego.model.Personaje, class java.lang.Object]
 	at org.mockito.junit.jupiter.MockitoExtension.beforeEach(MockitoExtension.java:153)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1604)
 	Suppressed: java.lang.NullPointerException: Cannot invoke "java.util.Set.forEach(java.util.function.Consumer)" because the return value of "org.junit.jupiter.api.extension.ExtensionContext$Store.remove(Object, java.lang.Class)" is null
 		at org.mockito.junit.jupiter.MockitoExtension.afterEach(MockitoExtension.java:184)
 		... 2 more
-Caused by: org.mockito.exceptions.base.MockitoException: Could not modify all classes [class java.lang.Object, class com.juego.model.Personaje]
+Caused by: org.mockito.exceptions.base.MockitoException: Could not modify all classes [class com.juego.model.Personaje, class java.lang.Object]
 	at net.bytebuddy.TypeCache.findOrInsert(TypeCache.java:168)
 	at net.bytebuddy.TypeCache$WithInlineExpunction.findOrInsert(TypeCache.java:399)
 	at net.bytebuddy.TypeCache.findOrInsert(TypeCache.java:190)
