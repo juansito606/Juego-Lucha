@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>PersonajeConEstrategia.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">juego-lucha</a> &gt; <a href="index.source.html" class="el_package">com.juego.model</a> &gt; <span class="el_source">PersonajeConEstrategia.java</span></div><h1>PersonajeConEstrategia.java</h1><pre class="source lang-java linenums">package com.juego.model;
+
+import com.juego.patrones.strategy.EstrategiaAtaque;
+import com.juego.patrones.strategy.AtaqueFisico;
+
+/**
+ * Personaje que usa el patrón Strategy para atacar.
+ * 
+ * ¿Cómo se conecta con Strategy?
+ * Este personaje TIENE UNA EstrategiaAtaque. Cuando ataca,
+ * le pide a su estrategia que haga el trabajo.
+ * 
+ * Esto se llama COMPOSICIÓN: en lugar de heredar el comportamiento,
+ * lo tenemos como un atributo que podemos cambiar en tiempo de ejecución.
+ * 
+ * ¿Cuándo usar herencia vs composición?
+ * Herencia: cuando la relación es &quot;ES UN&quot; (Guerrero ES UN Personaje)
+ * Composición: cuando la relación es &quot;TIENE UN&quot; (Personaje TIENE UN ataque)
+ */
+public class PersonajeConEstrategia extends Personaje {
+
+    // El tipo de ataque es un objeto separado, intercambiable
+    private EstrategiaAtaque estrategiaAtaque;
+
+    public PersonajeConEstrategia(String nombre) {
+<span class="fc" id="L26">        super(nombre);</span>
+        // Por defecto, ataque físico
+<span class="fc" id="L28">        this.estrategiaAtaque = new AtaqueFisico();</span>
+<span class="fc" id="L29">    }</span>
+
+    public PersonajeConEstrategia(String nombre, int puntosDeVida) {
+<span class="fc" id="L32">        super(nombre, puntosDeVida);</span>
+<span class="fc" id="L33">        this.estrategiaAtaque = new AtaqueFisico();</span>
+<span class="fc" id="L34">    }</span>
+
+    /**
+     * Cambia la estrategia de ataque en tiempo de ejecución.
+     * Esto es el PODER del patrón Strategy: el comportamiento
+     * puede cambiar SIN cambiar la clase Personaje.
+     */
+    public void setEstrategiaAtaque(EstrategiaAtaque estrategia) {
+<span class="fc" id="L42">        this.estrategiaAtaque = estrategia;</span>
+<span class="fc" id="L43">    }</span>
+
+    public EstrategiaAtaque getEstrategiaAtaque() {
+<span class="fc" id="L46">        return estrategiaAtaque;</span>
+    }
+
+    /**
+     * Ataca al oponente usando la estrategia actual.
+     * El personaje no sabe CÓMO se calcula el daño — se lo delega a la estrategia.
+     */
+    public void atacar(Personaje oponente) {
+<span class="fc" id="L54">        estrategiaAtaque.atacar(this, oponente);</span>
+<span class="fc" id="L55">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>
