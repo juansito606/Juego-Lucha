@@ -6,20 +6,13 @@ import com.juego.patrones.strategy.*;
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
 
-/**
- * Pruebas para las estrategias de ataque.
- * Usamos objetos reales en vez de mocks porque Mockito
- * tiene restricciones con clases concretas en Java 17+.
- */
 class EstrategiaAtaqueTest {
 
     private PersonajeConEstrategia atacante;
-    private Personaje defensor;
 
     @BeforeEach
     void setUp() {
         atacante = new PersonajeConEstrategia("Atacante");
-        defensor = new Personaje("Defensor", 99999); // HP altísimo para no morir
     }
 
     @Test
