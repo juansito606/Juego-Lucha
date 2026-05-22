@@ -34,22 +34,28 @@ class DecoradorTest {
     @Test
     @DisplayName("El ataque con espada causa más daño que sin espada")
     void testEspadaAumentaDano() {
+        // Creamos dos guerreros INDEPENDIENTES para comparar
+        FabricaGuerrero fabrica = new FabricaGuerrero();
+        PersonajeConEstrategia guerrero1 = fabrica.crearPersonaje("GuerreroSinEspada");
+        PersonajeConEstrategia guerrero2 = fabrica.crearPersonaje("GuerreroConEspada");
+        PersonajeConEstrategia guerrero2ConEspada = new PersonajeConEspada(guerrero2, "Espada de Fuego");
+
         PersonajeConEstrategia defensor1 = new PersonajeConEstrategia("D1", 10000);
         PersonajeConEstrategia defensor2 = new PersonajeConEstrategia("D2", 10000);
 
-        int ataques = 20;
+        int ataques = 50;
         for (int i = 0; i < ataques; i++) {
-            guerreroBase.atacar(defensor1);
+            guerrero1.atacar(defensor1);
         }
         for (int i = 0; i < ataques; i++) {
-            guerreroConEspada.atacar(defensor2);
+            guerrero2ConEspada.atacar(defensor2);
         }
 
         int danioSinEspada = 10000 - defensor1.getPuntosDeVida();
         int danioConEspada  = 10000 - defensor2.getPuntosDeVida();
 
         assertTrue(danioConEspada > danioSinEspada,
-                "El guerrero con espada debe causar más daño total");
+                "Con espada (" + danioConEspada + ") debe superar sin espada (" + danioSinEspada + ")");
     }
 
     @Test
