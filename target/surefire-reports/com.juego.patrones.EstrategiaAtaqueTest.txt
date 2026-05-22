@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: com.juego.patrones.EstrategiaAtaqueTest
 -------------------------------------------------------------------------------
-Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 2.355 s <<< FAILURE! - in com.juego.patrones.EstrategiaAtaqueTest
-com.juego.patrones.EstrategiaAtaqueTest.testAtaqueFisicoRangoDano  Time elapsed: 2.132 s  <<< ERROR!
+Tests run: 3, Failures: 0, Errors: 3, Skipped: 0, Time elapsed: 1.947 s <<< FAILURE! - in com.juego.patrones.EstrategiaAtaqueTest
+com.juego.patrones.EstrategiaAtaqueTest.testAtaqueFisicoRangoDano  Time elapsed: 1.542 s  <<< ERROR!
 org.mockito.exceptions.base.MockitoException: 
 
 Mockito cannot mock this class: class com.juego.model.Personaje.
@@ -83,7 +83,7 @@ Caused by: java.lang.IllegalArgumentException: Java 25 (69) is not supported by 
 	at org.mockito.internal.creation.bytebuddy.InlineBytecodeGenerator.triggerRetransformation(InlineBytecodeGenerator.java:281)
 	... 27 more
 
-com.juego.patrones.EstrategiaAtaqueTest.testAtaqueCriticoEsDoble  Time elapsed: 0.072 s  <<< ERROR!
+com.juego.patrones.EstrategiaAtaqueTest.testAtaqueCriticoEsDoble  Time elapsed: 0.085 s  <<< ERROR!
 org.mockito.exceptions.base.MockitoException: 
 
 Mockito cannot mock this class: class com.juego.model.Personaje.
@@ -164,7 +164,7 @@ Caused by: java.lang.IllegalArgumentException: Java 25 (69) is not supported by 
 	at org.mockito.internal.creation.bytebuddy.InlineBytecodeGenerator.triggerRetransformation(InlineBytecodeGenerator.java:281)
 	... 27 more
 
-com.juego.patrones.EstrategiaAtaqueTest.testAtaqueMagicoRangoDano  Time elapsed: 0.069 s  <<< ERROR!
+com.juego.patrones.EstrategiaAtaqueTest.testAtaqueMagicoRangoDano  Time elapsed: 0.215 s  <<< ERROR!
 org.mockito.exceptions.base.MockitoException: 
 
 Mockito cannot mock this class: class com.juego.model.Personaje.
