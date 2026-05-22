@@ -4,85 +4,76 @@ import com.juego.model.Personaje;
 import com.juego.model.PersonajeConEstrategia;
 import com.juego.patrones.strategy.*;
 import org.junit.jupiter.api.*;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.*;
-import org.mockito.junit.jupiter.MockitoExtension;
-
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.*;
 
-@ExtendWith(MockitoExtension.class)
+/**
+ * Pruebas para las estrategias de ataque.
+ * Usamos objetos reales en vez de mocks porque Mockito
+ * tiene restricciones con clases concretas en Java 17+.
+ */
 class EstrategiaAtaqueTest {
 
-    @Mock
-    private Personaje defensorMock;
-
-    // Atacante real, no mock
     private PersonajeConEstrategia atacante;
+    private Personaje defensor;
 
     @BeforeEach
     void setUp() {
         atacante = new PersonajeConEstrategia("Atacante");
+        defensor = new Personaje("Defensor", 99999); // HP altísimo para no morir
     }
 
     @Test
-    @DisplayName("AtaqueFisico debe llamar recibirDano con valor entre 10 y 30")
+    @DisplayName("AtaqueFisico causa daño entre 10 y 30")
     void testAtaqueFisicoRangoDano() {
-        when(defensorMock.getNombre()).thenReturn("Defensor");
-
         AtaqueFisico estrategia = new AtaqueFisico();
 
-        ArgumentCaptor<Integer> captor = ArgumentCaptor.forClass(Integer.class);
+        for (int i = 0; i < 30; i++) {
+            Personaje objetivo = new Personaje("Obj", 99999);
+            int vidaAntes = objetivo.getPuntosDeVida();
+            estrategia.atacar(atacante, objetivo);
+            int dano = vidaAntes - objetivo.getPuntosDeVida();
 
-        for (int i = 0; i < 20; i++) {
-            estrategia.atacar(atacante, defensorMock);
-        }
-
-        verify(defensorMock, times(20)).recibirDano(captor.capture());
-
-        for (int dano : captor.getAllValues()) {
             assertTrue(dano >= 10 && dano <= 30,
-                    "El daño físico debe estar entre 10 y 30, fue: " + dano);
+                    "Daño físico debe ser entre 10 y 30, fue: " + dano);
         }
     }
 
     @Test
-    @DisplayName("AtaqueMagico debe llamar recibirDano con valor entre 15 y 45 cuando conecta")
+    @DisplayName("AtaqueMagico cuando conecta causa daño entre 15 y 45")
     void testAtaqueMagicoRangoDano() {
-        when(defensorMock.getNombre()).thenReturn("Defensor");
-
         AtaqueMagico estrategia = new AtaqueMagico();
-        ArgumentCaptor<Integer> captor = ArgumentCaptor.forClass(Integer.class);
+        boolean alMenosUnoConecto = false;
 
         for (int i = 0; i < 100; i++) {
-            estrategia.atacar(atacante, defensorMock);
+            Personaje objetivo = new Personaje("Obj", 99999);
+            int vidaAntes = objetivo.getPuntosDeVida();
+            estrategia.atacar(atacante, objetivo);
+            int dano = vidaAntes - objetivo.getPuntosDeVida();
+
+            if (dano > 0) {
+                alMenosUnoConecto = true;
+                assertTrue(dano >= 15 && dano <= 45,
+                        "Daño mágico debe ser entre 15 y 45, fue: " + dano);
+            }
         }
 
-        verify(defensorMock, atLeastOnce()).recibirDano(captor.capture());
-
-        for (int dano : captor.getAllValues()) {
-            assertTrue(dano >= 15 && dano <= 45,
-                    "El daño mágico debe estar entre 15 y 45, fue: " + dano);
-        }
+        assertTrue(alMenosUnoConecto,
+                "En 100 ataques mágicos al menos uno debe conectar");
     }
 
     @Test
-    @DisplayName("AtaqueCritico debe llamar recibirDano con valor entre 5 y 30")
-    void testAtaqueCriticoEsDoble() {
-        when(defensorMock.getNombre()).thenReturn("Defensor");
-
+    @DisplayName("AtaqueCritico causa daño entre 5 y 30")
+    void testAtaqueCriticoRangoDano() {
         AtaqueCritico estrategia = new AtaqueCritico();
-        ArgumentCaptor<Integer> captor = ArgumentCaptor.forClass(Integer.class);
 
         for (int i = 0; i < 50; i++) {
-            estrategia.atacar(atacante, defensorMock);
-        }
+            Personaje objetivo = new Personaje("Obj", 99999);
+            int vidaAntes = objetivo.getPuntosDeVida();
+            estrategia.atacar(atacante, objetivo);
+            int dano = vidaAntes - objetivo.getPuntosDeVida();
 
-        verify(defensorMock, times(50)).recibirDano(captor.capture());
-
-        for (int dano : captor.getAllValues()) {
             assertTrue(dano >= 5 && dano <= 30,
-                    "El daño debe estar entre 5 y 30, fue: " + dano);
+                    "Daño crítico debe ser entre 5 y 30, fue: " + dano);
         }
     }
 }
